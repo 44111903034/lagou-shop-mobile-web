@@ -1,3 +1,4 @@
 <template>
- 项目准备中
+  <!-- 根路由出口 -->
+  <router-view></router-view>
 </template>
