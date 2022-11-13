@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import store from '../store'
 
 // 路由规则配置
 const routes = [
@@ -94,6 +95,24 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+
+// 导航守卫
+router.beforeEach(to => {
+  // 对无须登录的页面进行放行
+  if (!to.meta.requireAuth) {
+    return true
+  }
+  // 校验登录状态
+  if (!store.state.user || !window.localStorage.getItem('USER_TOKEN')) {
+    // 跳转登录页面
+    return {
+      name: 'login',
+      query: {
+        redirect: to.fullPath
+      }
+    }
+  }
 })
 
 export default router
