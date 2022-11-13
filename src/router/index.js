@@ -56,6 +56,12 @@ const routes = [
     props: true
   },
   {
+    path: '/comment/:productId',
+    name: 'comment',
+    component: () => import('../view/Comment/index.vue'),
+    props: true
+  },
+  {
     path: '/recommend',
     name: 'recommend',
     component: () => import('../view/Recommend/index.vue')
