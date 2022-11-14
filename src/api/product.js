@@ -7,13 +7,13 @@ export const getProductsData = params => request({
   params
 })
 
-// 获取某个指定商品详情接口
+// 获取某个指定商品详情
 export const getProductDetails = productId => request({
   method: 'GET',
   url: `/product/detail/${productId}`
 })
 
-// 商品评价数量请求
+// 商品评价数量请接口
 export const getCommentCount = productId => request({
   method: 'GET',
   url: `/reply/config/${productId}`
