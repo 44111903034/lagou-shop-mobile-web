@@ -1,20 +1,40 @@
 <template>
   <!-- 不需要居中显示，关闭即可，同时关闭边框显示 -->
-  <van-grid class="product-list" :column-num="2" :gutter="15" :center="false" :border="false">
-    <van-grid-item v-for="item in productsData" :key="item.id" :to="{
-      name: 'product',
-      params: {
-        productId: item.id
-      }
-    }">
+  <van-grid
+    class="product-list"
+    :column-num="2"
+    :gutter="15"
+    :center="false"
+    :border="false"
+  >
+    <van-grid-item
+      v-for="item in productsData"
+      :key="item.id"
+      :to="{
+        name: 'product',
+        params: {
+          productId: item.id
+        }
+      }"
+    >
       <!-- 商品图 -->
-      <van-image :src="item.image" height="165"></van-image>
+      <van-image
+        :src="item.image"
+        height="165"
+      />
       <!-- 商品标题 -->
-      <p class="title" v-text="item.store_name"></p>
+      <p
+        class="title"
+        v-text="item.store_name"
+      />
       <!-- 商品价格 -->
-      <p class="price">¥{{ item.price }}</p>
+      <p class="price">
+        ¥{{ item.price }}
+      </p>
       <!-- 销量 -->
-      <p class="sales">已售{{ item.sales }}件</p>
+      <p class="sales">
+        已售{{ item.sales }}件
+      </p>
     </van-grid-item>
   </van-grid>
 </template>
